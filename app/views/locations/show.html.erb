@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>X coord:</b>
+  <%= @location.x_coord %>
+</p>
+
+<p>
+  <b>Y coord:</b>
+  <%= @location.y_coord %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @location.description %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @location.user_id %>
+</p>
+
+<p>
+  <b>Is active:</b>
+  <%= @location.is_active %>
+</p>
+
+
+<%= link_to 'Edit', edit_location_path(@location) %> |
+<%= link_to 'Back', locations_path %>
