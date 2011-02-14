@@ -14,11 +14,22 @@ function initialize() {
 	<% @locations.each do |location| %>
 		var latlng<%= i %> = new google.maps.LatLng(<%= location.x_coord %>, <%= location.y_coord %>);
 		var title<%=i%> =  '<%= location.description %>';
+		var content<%=i%> = '<h2><%= location.description %></h2>'+
+			'<p> proposed by:'+
+			'<%=User.find_by_id(location.user_id).username %></p>'+
+			'<h3>Current Works:</h3>'+
+			<% location.works.each do |work| %>
+				'<%= link_to work.title, work %> <br />'
+			<% end %>;  
+		var info<%=i%> = new google.maps.InfoWindow({
+			content: content<%=i%>});
 		var marker<%= i %> = new google.maps.Marker({
 		  position: latlng<%= i %>,
 		  map: map,
 		  title: title<%= i %>
 		});
+		google.maps.event.addListener(marker<%=i%>, 'click', function() {
+			info<%=i%>.open(map, marker<%=i%>)});
 		<% i = i + 1  %>
 	<% end%>
 }

@@ -6,6 +6,7 @@ class CreateWorks < ActiveRecord::Migration
       t.string :sketch
       t.integer :artist_id
       t.boolean :is_real
+      t.integer :location_id
 
       t.timestamps
     end

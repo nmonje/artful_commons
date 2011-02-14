@@ -29,4 +29,5 @@ Work.create(:title => "El Diablo",
 						:description => "It's the devil, getit?",
 						:sketch => "http://i.imgur.com/tTn2Z.jpg",
 						:artist_id => Artist.find_by_name("Pablo Picasso").id,
-						:is_real => false)
+						:is_real => false,
+						:location_id => Location.find_by_description("Active.").id)

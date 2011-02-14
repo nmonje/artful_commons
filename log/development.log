@@ -236,3 +236,5 @@ WARNING: Can't mass-assign protected attributes: type
   [1m[35mAREL (1.1ms)[0m  INSERT INTO "locations" ("y_coord", "created_at", "is_active", "user_id", "updated_at", "description", "x_coord") VALUES (-71.067779, '2011-02-14 19:47:58.084779', 'f', 3, '2011-02-14 19:47:58.084779', 'Inactive.', 42.357496)
   [1m[36mArtist Load (0.6ms)[0m  [1mSELECT "artists".* FROM "artists" WHERE ("artists"."name" = 'Pablo Picasso') LIMIT 1[0m
   [1m[35mAREL (0.9ms)[0m  INSERT INTO "works" ("description", "is_real", "artist_id", "created_at", "updated_at", "sketch", "title") VALUES ('It''s the devil, getit?', 'f', 3, '2011-02-14 19:47:58.274762', '2011-02-14 19:47:58.274762', 'http://i.imgur.com/tTn2Z.jpg', 'El Diablo')
+  [1m[36mLocation Load (1.6ms)[0m  [1mSELECT "locations".* FROM "locations" LIMIT 1[0m
+  [1m[35mWork Load (2.1ms)[0m  SELECT "works".* FROM "works" LIMIT 1
