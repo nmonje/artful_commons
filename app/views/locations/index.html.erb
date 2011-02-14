@@ -1,10 +1,30 @@
-<h1> Map View </h1>
+<script type="text/javascript"
+  src="http://maps.google.com/maps/api/js?sensor=false">
+</script>
+<script type="text/javascript">
+function initialize() {
+	var latlng = new google.maps.LatLng(42.353787, -71.066437);
+	var myOptions = {
+		zoom: 14,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+	<% i = 0 %>
+	<% @locations.each do |location| %>
+		var latlng<%= i %> = new google.maps.LatLng(<%= location.x_coord %>, <%= location.y_coord %>);
+		var marker<%= i %> = new google.maps.Marker({
+		  position: latlng<%= i %>,
+		  map: map,
+		  title:location.description
+		});
+		<% i = i + 1  %>
+	<% end%>
+}
+</script>
+<div id="map_canvas"> </div>
 
-<div>
-	<div id="map_canvas" style="width:100px; height:100px"> </div>
-</div>
-
-<h1>Listing locations</h1>
+<!-- <h1>Listing locations</h1>
 
 <table>
   <tr>
@@ -34,4 +54,4 @@
 
 <br />
 
-<%= link_to 'New Location', new_location_path %>
+<%= link_to 'New Location', new_location_path %> -->

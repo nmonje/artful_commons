@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1> <%= @work.title %> </h1>
-<p> by <%= @artist.name %> </p>
+<p> by <%= link_to @artist.name, @artist.website_url %> </p>
 
 <p>
   <% if @work.is_real %>
