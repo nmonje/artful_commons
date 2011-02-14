@@ -13,10 +13,11 @@ function initialize() {
 	<% i = 0 %>
 	<% @locations.each do |location| %>
 		var latlng<%= i %> = new google.maps.LatLng(<%= location.x_coord %>, <%= location.y_coord %>);
+		var title<%=i%> =  '<%= location.description %>';
 		var marker<%= i %> = new google.maps.Marker({
 		  position: latlng<%= i %>,
 		  map: map,
-		  title:location.description
+		  title: title<%= i %>
 		});
 		<% i = i + 1  %>
 	<% end%>

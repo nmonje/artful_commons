@@ -202,3 +202,37 @@ WARNING: Can't mass-assign protected attributes: type
   [1m[35mAREL (0.7ms)[0m  INSERT INTO "locations" ("updated_at", "user_id", "x_coord", "is_active", "y_coord", "created_at", "description") VALUES ('2011-02-14 01:42:36.144760', 1, 44.356496, 'f', -69.067679, '2011-02-14 01:42:36.144760', 'Inactive.')
   [1m[36mArtist Load (0.7ms)[0m  [1mSELECT "artists".* FROM "artists" WHERE ("artists"."name" = 'Pablo Picasso') LIMIT 1[0m
   [1m[35mAREL (0.9ms)[0m  INSERT INTO "works" ("artist_id", "created_at", "title", "updated_at", "sketch", "is_real", "description") VALUES (1, '2011-02-14 01:42:36.336608', 'El Diablo', '2011-02-14 01:42:36.336608', 'http://i.imgur.com/tTn2Z.jpg', 'f', 'It''s the devil, getit?')
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mLocation Load (1.0ms)[0m  SELECT "locations".* FROM "locations" WHERE ("locations"."id" = 2) LIMIT 1
+  [1m[36mLocation Load (0.9ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE ("locations"."id" = 2) LIMIT 1[0m
+  [1m[35mLocation Load (0.9ms)[0m  SELECT "locations".* FROM "locations" WHERE ("locations"."id" = 2) LIMIT 1
+  [1m[36mLocation Load (0.9ms)[0m  [1mSELECT "locations".* FROM "locations" WHERE ("locations"."id" = 2) LIMIT 1[0m
+  [1m[35mLocation Load (0.9ms)[0m  SELECT "locations".* FROM "locations" WHERE ("locations"."id" = 2) LIMIT 1
+  [1m[36mSQL (1.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (1.0ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.8ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mAREL (223.0ms)[0m  DELETE FROM "artists" WHERE 1=1
+  [1m[36mAREL (193.8ms)[0m  [1mDELETE FROM "users" WHERE 1=1[0m
+  [1m[35mAREL (0.5ms)[0m  DELETE FROM "comments" WHERE 1=1
+  [1m[36mAREL (120.6ms)[0m  [1mDELETE FROM "works" WHERE 1=1[0m
+  [1m[35mAREL (148.4ms)[0m  DELETE FROM "locations" WHERE 1=1
+  [1m[36mAREL (1.2ms)[0m  [1mINSERT INTO "artists" ("updated_at", "website_url", "created_at", "name") VALUES ('2011-02-14 19:47:56.980429', 'http://www.picasso.com', '2011-02-14 19:47:56.980429', 'Pablo Picasso')[0m
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "artists" ("updated_at", "website_url", "created_at", "name") VALUES ('2011-02-14 19:47:57.248246', 'http://www.davinci.com', '2011-02-14 19:47:57.248246', 'Leonardo DaVinci')
+WARNING: Can't mass-assign protected attributes: type
+  [1m[36mAREL (0.7ms)[0m  [1mINSERT INTO "users" ("type", "username", "updated_at", "created_at") VALUES (NULL, 'Taylor Waylor', '2011-02-14 19:47:57.522005', '2011-02-14 19:47:57.522005')[0m
+WARNING: Can't mass-assign protected attributes: type
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "users" ("type", "username", "updated_at", "created_at") VALUES (NULL, 'Tommy Menino', '2011-02-14 19:47:57.781525', '2011-02-14 19:47:57.781525')
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'Taylor Waylor') LIMIT 1[0m
+  [1m[35mAREL (1.0ms)[0m  INSERT INTO "locations" ("y_coord", "created_at", "is_active", "user_id", "updated_at", "description", "x_coord") VALUES (-71.067679, '2011-02-14 19:47:57.949533', 't', 3, '2011-02-14 19:47:57.949533', 'Active.', 42.356496)
+  [1m[36mUser Load (0.9ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."username" = 'Taylor Waylor') LIMIT 1[0m
+  [1m[35mAREL (1.1ms)[0m  INSERT INTO "locations" ("y_coord", "created_at", "is_active", "user_id", "updated_at", "description", "x_coord") VALUES (-71.067779, '2011-02-14 19:47:58.084779', 'f', 3, '2011-02-14 19:47:58.084779', 'Inactive.', 42.357496)
+  [1m[36mArtist Load (0.6ms)[0m  [1mSELECT "artists".* FROM "artists" WHERE ("artists"."name" = 'Pablo Picasso') LIMIT 1[0m
+  [1m[35mAREL (0.9ms)[0m  INSERT INTO "works" ("description", "is_real", "artist_id", "created_at", "updated_at", "sketch", "title") VALUES ('It''s the devil, getit?', 'f', 3, '2011-02-14 19:47:58.274762', '2011-02-14 19:47:58.274762', 'http://i.imgur.com/tTn2Z.jpg', 'El Diablo')
