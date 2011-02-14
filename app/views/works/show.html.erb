@@ -1,29 +1,25 @@
 <p id="notice"><%= notice %></p>
 
+<h1> <%= @work.title %> </h1>
+<p> by <%= @artist.name %> </p>
+
 <p>
-  <b>Title:</b>
-  <%= @work.title %>
+  <% if @work.is_real %>
+  	This work already exists.
+	<% else %>
+		This work is a proposal. Feel free to leave comments!
+	<% end %>
 </p>
 
 <p>
-  <b>Description:</b>
+	<h2> Description </h2>
   <%= @work.description %>
 </p>
 
 <p>
-  <b>Sketch:</b>
-  <%= @work.sketch %>
+  <%= image_tag @work.sketch %>
 </p>
 
-<p>
-  <b>Artist:</b>
-  <%= @work.artist_id %>
-</p>
-
-<p>
-  <b>Is real:</b>
-  <%= @work.is_real %>
-</p>
 
 
 <%= link_to 'Edit', edit_work_path(@work) %> |

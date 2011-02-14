@@ -14,6 +14,7 @@ class WorksController < ApplicationController
   # GET /works/1.xml
   def show
     @work = Work.find(params[:id])
+    @artist = Artist.find_by_id(@work.artist_id)
 
     respond_to do |format|
       format.html # show.html.erb
