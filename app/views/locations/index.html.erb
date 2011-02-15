@@ -12,29 +12,35 @@ function initialize() {
 	var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
 	<% i = 0 %>
 	<% @locations.each do |location| %>
-		var latlng<%= i %> = new google.maps.LatLng(<%= location.x_coord %>, <%= location.y_coord %>);
-		var title<%=i%> =  '<%= location.description %>';
-		var content<%=i%> = '<h2><%= location.description %></h2>'+
-			'<p> proposed by:'+
-			'<%=User.find_by_id(location.user_id).username %></p>'+
-			'<h3>Current Works:</h3>'+
-			<% location.works.each do |work| %>
-				'<%= link_to work.title, work %> <br />'
-			<% end %>;  
-		var info<%=i%> = new google.maps.InfoWindow({
-			content: content<%=i%>});
-		var marker<%= i %> = new google.maps.Marker({
-		  position: latlng<%= i %>,
-		  map: map,
-		  title: title<%= i %>
-		});
-		google.maps.event.addListener(marker<%=i%>, 'click', function() {
-			info<%=i%>.open(map, marker<%=i%>)});
-		<% i = i + 1  %>
-	<% end%>
+		<% if location.is_active %>
+			var latlng<%= i %> = new google.maps.LatLng(<%= location.lat %>, <%= location.lng %>);
+			var title<%=i%> =  '<%= location.title %>';
+			var content<%=i%> = '<h2><%= location.title %></h2>'+
+				'<p> proposed by:'+
+				'<%=User.find_by_id(location.user_id).username %></p>'+
+				'<h3>Current Works:</h3> <ul>'+
+				<% location.works.each do |work| %>
+					'<li><%= link_to work.title, work %> </li>'+
+				<% end %>
+				'</ul>'+
+				'<%= link_to "Propose a new work at this location", new_work_path%>';
+			var info<%=i%> = new google.maps.InfoWindow({
+				content: content<%=i%>});
+			var marker<%= i %> = new google.maps.Marker({
+				position: latlng<%= i %>,
+				map: map,
+				title: title<%= i %>
+			});
+			google.maps.event.addListener(marker<%=i%>, 'click', function() {
+				info<%=i%>.open(map, marker<%=i%>)});
+			<% i = i + 1  %>
+			<% end %>
+	<% end %>
 }
 </script>
 <div id="map_canvas"> </div>
+
+<%= link_to 'New Location', new_location_path %>
 
 <!-- <h1>Listing locations</h1>
 
@@ -52,9 +58,9 @@ function initialize() {
 
 <% @locations.each do |location| %>
   <tr>
-    <td><%= location.x_coord %></td>
-    <td><%= location.y_coord %></td>
-    <td><%= location.description %></td>
+    <td><%= location.lat %></td>
+    <td><%= location.lng %></td>
+    <td><%= location.title %></td>
     <td><%= location.user_id %></td>
     <td><%= location.is_active %></td>
     <td><%= link_to 'Show', location %></td>
@@ -64,6 +70,4 @@ function initialize() {
 <% end %>
 </table>
 
-<br />
-
-<%= link_to 'New Location', new_location_path %> -->
+<br /> -->

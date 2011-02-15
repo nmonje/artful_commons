@@ -14,14 +14,14 @@ User.create(:username => "Taylor Waylor",
 User.create(:username => "Tommy Menino",
 						:type => :admin)
 						
-Location.create(:x_coord => 42.356496,
-								:y_coord => -71.067679,
-								:description => "Active.",
+Location.create(:lat => 42.356496,
+								:lng => -71.067679,
+								:title => "Active.",
 								:user_id => User.find_by_username("Taylor Waylor").id,
 								:is_active => true)
-Location.create(:x_coord => 42.357496,
-								:y_coord => -71.067779,
-								:description => "Inactive.",
+Location.create(:lat => 42.357496,
+								:lng => -71.067779,
+								:title => "Inactive.",
 								:user_id => User.find_by_username("Taylor Waylor").id,
 								:is_active => false)
 
@@ -30,4 +30,4 @@ Work.create(:title => "El Diablo",
 						:sketch => "http://i.imgur.com/tTn2Z.jpg",
 						:artist_id => Artist.find_by_name("Pablo Picasso").id,
 						:is_real => false,
-						:location_id => Location.find_by_description("Active.").id)
+						:location_id => Location.find_by_title("Active.").id)

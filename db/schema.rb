@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(:version => 20110213210652) do
   end
 
   create_table "locations", :force => true do |t|
-    t.float    "x_coord"
-    t.float    "y_coord"
-    t.text     "description"
+    t.float    "lat"
+    t.float    "lng"
+    t.string   "title"
     t.integer  "user_id"
     t.boolean  "is_active"
     t.datetime "created_at"
@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(:version => 20110213210652) do
     t.string   "sketch"
     t.integer  "artist_id"
     t.boolean  "is_real"
+    t.integer  "location_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
